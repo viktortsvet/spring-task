@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Пользователи автостоянки</title>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+    <div class="container mt-5">
+        <h1>Пользователи автостоянки</h1>
+        <div th:each="user : ${users}" class="alert alert-info mt-2">
+            <p th:text="${user.name}"></p>
+            <p th:text="${user.surname}"></p>
+            <form th:action="'/users/' + ${user.id} + '/remove'" method="post">
+                <button type="submit" th:href="'/users/' + ${user.id} + '/remove'" class="btn btn-outline-danger mt-5">Удалить</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

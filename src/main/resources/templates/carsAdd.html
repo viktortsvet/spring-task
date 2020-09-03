@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Добавить автомобиль</title>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1>Добавить автомобиль</h1>
+    <form action="/cars/add" method="post">
+        <input type="text" class="form-control" required name="carModel" placeholder="Марка автомобиля"><br>
+        <input type="text" class="form-control" required name="ownerName" placeholder="Имя владельца"><br>
+        <input type="text" class="form-control" required name="ownerSurname" placeholder="Фамилия владельца"><br>
+        <input type="text" class="form-control" required name="price" placeholder="Цена парковки"><br>
+        <button type="submit" class="btn btn-outline-success">Добавить автомобиль</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактировать автомобиль</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование автомобиля</h1>
+    <div th:each="el : ${car}">
+        <form method="post">
+            <input type="text" th:value="${el.carModel}" class="form-control" name="carModel" placeholder="Марка автомобиля"><br>
+            <input type="text" th:value="${el.ownerName}" class="form-control" name="ownerName" placeholder="Имя владельца"><br>
+            <input type="text" th:value="${el.ownerSurname}" class="form-control" name="ownerSurname" placeholder="Фамилия владельца"><br>
+            <input type="text" th:value="${el.price}" class="form-control" name="price" placeholder="Цена парковки"><br>
+            <button type="submit" class="btn btn-outline-primary">Обновить</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

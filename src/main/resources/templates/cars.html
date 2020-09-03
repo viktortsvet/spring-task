@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Учёт автомобилей</title>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1>Автомобили</h1>
+    <div th:each="car : ${cars}" class="alert alert-info mt-2">
+        <div><span>Марка машины: </span><p th:text="${car.carModel}"></p></div>
+        <a th:href="'/cars/' + ${car.id}" class="btn btn-outline-success">Подробнее</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Подробнее об автомобиле</title>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+    <div class="container mt-5">
+        <h1>Подробнее об автомобиле</h1>
+        <div th:each="el : ${car}" class="alert alert-info mt-2">
+            <div><span>Марка машины: </span><p th:text="${el.carModel}"></p></div>
+            <div><span>Имя владельца: </span><p th:text="${el.ownerName}"></p></div>
+            <div><span>Фамилия владельца:</span><p th:text="${el.ownerSurname}"></p></div>
+            <div><span>Цена парковки: </span><span th:text="${el.price}"></span><span>руб.</span></div>
+
+            <a th:href="'/cars/' + ${el.id} + '/edit'" class="btn btn-outline-warning">Редактировать</a>
+
+            <form th:action="'/cars/' + ${el.id} + '/remove'" method="post">
+                <button type="submit" th:href="'/cars/' + ${el.id} + '/remove'" class="btn btn-outline-danger mt-5">Удалить</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
